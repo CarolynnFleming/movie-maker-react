@@ -21,16 +21,18 @@ export default function HomePage({ setUser }) {
   }
   return (
     <div className='home page'>
+      <h1>Movie Search</h1>
+      <h2><em>Keep track of the films you watch</em></h2>
       <form onSubmit={handleSignIn}>
         <label>
                 Email
-          <input value={email} type='email' name='email' onChange={e => setEmail(e.target.value)} />
+          <input value={email} required type='email' name='email' onChange={e => setEmail(e.target.value)} />
         </label>
         <label>
                 Password
-          <imput value={password} type='password' name='password' onChange={e => setPassword(e.target.value)} />
+          <input value={password} required type='password' name='password' onChange={e => setPassword(e.target.value)} />
         </label>
-        <button>Sign In</button>
+        <button onClick={handleSignIn}>Sign In</button>
         <button type='button' onClick={handleSignUp}>Sign Up</button>
       </form>
     </div>

@@ -37,7 +37,7 @@ function App() {
          <>
            <NavLink to="/search">Search Page</NavLink>
            <NavLink to="/sawmovie">Watched Movie Page</NavLink>
-           <button onClick={logout}>Logout</button>
+           <button onClick={handleLogout}>Logout</button>
          </>
           }
         </header>
