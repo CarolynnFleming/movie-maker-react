@@ -29,7 +29,7 @@ export default function Movie({
       <h3>{movie.title}</h3>
       <em>{movie.overview}</em>
       <p>
-        <img src={movie.poster_path ? `https://image.tmb.org/t/p/original${movie.poster_path}` : 'https://www.placebear.com/200/300'} />
+        <img src={movie.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : 'https://www.placebear.com/200/300'} />
       </p>
     </div>
   );
