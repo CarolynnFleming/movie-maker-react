@@ -3,13 +3,21 @@ import { signInUser, signUpUser } from './services/fetch_utils';
 import { useState } from 'react';
 
 export default function HomePage({ setUser }) {
-    const [signUpEmail, setSignUpEmail] = useState('');
-    const [signUpPassword, setSignUpPassword] = useState('');
-    const [signInEmail, setSignInEmail] = useState('');
-    const [signInPassword, setSignInPassword] = useState('');
+  const [signUpEmail, setSignUpEmail] = useState('');
+  const [signUpPassword, setSignUpPassword] = useState('');
+  const [signInEmail, setSignInEmail] = useState('');
+  const [signInPassword, setSignInPassword] = useState('');
 
+  async function handleSignUp(e) {
+      e.preventDefault();
+
+      const user = await signUpUser(signUpEmail, signUpPassword);
+      setUser(user);
+      setSignUpEmail('');
+      setSignInPassword('');
+  }
   return (
     <div>HomePage</div>
-  )
+  );
 }
 
