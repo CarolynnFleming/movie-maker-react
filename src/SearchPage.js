@@ -21,11 +21,26 @@ export default function SearchPage() {
 
     setSawList(mySawList);
   }
-  
+
   useEffect(() => {
     refreshSawList();
   }, []);
+
+  function isOnSawList(api_id) {
+    const match = sawList.find(item => Number(item.api_id) === Number(api_id));
+
+    return Boolean(match);
+  }
   return (
-    <div>SearchPage</div>
+    <div>
+      <form onSubmit={handleSearch}>
+        <input value={searchQuery} onChange={e => setSearchQuery(e.target.value)}/>
+        <button>Search</button>
+      </form>
+      <section>
+            Results:
+        <MovieList movies={results} isOnSawList={isOnSawList} refreshSawList={refreshSawList}/>
+      </section>
+    </div>
   );
 }
