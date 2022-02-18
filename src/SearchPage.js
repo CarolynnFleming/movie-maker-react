@@ -4,18 +4,28 @@ import { searchMovies, getMovieSearchList } from './services/fetch_utils';
 import { useState, useEffect } from 'react';
 
 export default function SearchPage() {
-    const [searchQuery, setSearchQuery] = useState('');
-    const [results, setResults] = useState([]);
-    const [sawList, setSawList] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [results, setResults] = useState([]);
+  const [sawList, setSawList] = useState([]);
 
-    async function handleSearch(e) {
-     e.preventDefault();
+  async function handleSearch(e) {
+    e.preventDefault();
      
-     const movies = await searchMovies(searchQuery);
+    const movies = await searchMovies(searchQuery);
 
-     setResults(movies);
-    }
+    setResults(movies);
+  }
+
+  async function refreshSawList() {
+    const mySawList = await getMovieSearchList();
+
+    setSawList(mySawList);
+  }
+  
+  useEffect(() => {
+    refreshSawList();
+  }, []);
   return (
     <div>SearchPage</div>
-  )
+  );
 }
