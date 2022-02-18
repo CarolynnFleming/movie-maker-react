@@ -16,7 +16,13 @@ import './App.css';
 function App() {
   const [user, setUser] = useState(localStorage.getItem('supabase.auth.token'));
 
-  
+  useEffect(() => {
+    async function fetchUser() {
+      const user = await getUser();
+      setUser(user);
+    }
+    fetchUser();
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
