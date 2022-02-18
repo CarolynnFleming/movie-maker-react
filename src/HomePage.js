@@ -9,12 +9,21 @@ export default function HomePage({ setUser }) {
   const [signInPassword, setSignInPassword] = useState('');
 
   async function handleSignUp(e) {
-      e.preventDefault();
+    e.preventDefault();
 
-      const user = await signUpUser(signUpEmail, signUpPassword);
-      setUser(user);
-      setSignUpEmail('');
-      setSignInPassword('');
+    const user = await signUpUser(signUpEmail, signUpPassword);
+    setUser(user);
+    setSignUpEmail('');
+    setSignUpPassword('');
+  }
+
+  async function handleSignIn(e) {
+    e.preventDefault();
+
+    const user = await signInUser(signInEmail, signInPassword);
+    setUser(user);
+    setSignInEmail('');
+    setSignInPassword('');
   }
   return (
     <div>HomePage</div>
