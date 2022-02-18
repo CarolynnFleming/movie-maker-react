@@ -1,42 +1,38 @@
 import React from 'react';
-import { signInUser, signUpUser } from './services/fetch_utils';
+import { signIn, signUp } from './services/fetch_utils';
 import { useState } from 'react';
 
 export default function HomePage({ setUser }) {
-  const [signUpEmail, setSignUpEmail] = useState('');
-  const [signUpPassword, setSignUpPassword] = useState('');
-  const [signInEmail, setSignInEmail] = useState('');
-  const [signInPassword, setSignInPassword] = useState('');
-
-  async function handleSignUp(e) {
-    e.preventDefault();
-
-    const user = await signUpUser(signUpEmail, signUpPassword);
-    setUser(user);
-    setSignUpEmail('');
-    setSignUpPassword('');
-  }
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   async function handleSignIn(e) {
     e.preventDefault();
 
-    const user = await signInUser(signInEmail, signInPassword);
+    const user = await signIn(email, password);
     setUser(user);
-    setSignInEmail('');
-    setSignInPassword('');
+  }
+
+  async function handleSignUp(e) {
+    e.preventDefault();
+
+    const user = await signUp(email, password);
+    setUser(user);
   }
   return (
     <div className='home page'>
-        <form onSubmit={handleSignUp}>
-            <label>
+      <form onSubmit={handleSignIn}>
+        <label>
                 Email
-                <input value={signUpEmail} onChange={e => setSignUpEmail(e.target.value)} />
-            </label>
-            <label>
+          <input value={email} type='email' name='email' onChange={e => setEmail(e.target.value)} />
+        </label>
+        <label>
                 Password
-                <imput value={signUpPassword} type='password' onChange={e => setSignUpPassword(e.target.value)} />
-            </label>
-        </form>
+          <imput value={password} type='password' name='password' onChange={e => setPassword(e.target.value)} />
+        </label>
+        <button>Sign In</button>
+        <button type='button' onClick={handleSignUp}>Sign Up</button>
+      </form>
     </div>
   );
 }

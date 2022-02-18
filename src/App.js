@@ -1,22 +1,26 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import { getUser } from './services/fetch_utils';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  NavLink
+} from 'react-router-dom';
+import HomePage from './HomePage';
+import { logout } from './services/fetch_utils';
+import SearchPage from './SearchPage';
+import WatchListPage from './WatchListPage';
 import './App.css';
 
 function App() {
+  const [user, setUser] = useState(localStorage.getItem('supabase.auth.token'));
+
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       
       </header>
     </div>
   );
