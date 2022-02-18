@@ -29,11 +29,45 @@ function App() {
     setUser('');
   }
   return (
-    <div className="App">
-      <header className="App-header">
-       
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header>
+          {
+            user &&
+         <>
+           <NavLink to="/search">Search Page</NavLink>
+           <NavLink to="/sawmovie">Watched Movie Page</NavLink>
+           <button onClick={logout}>Logout</button>
+         </>
+          }
+        </header>
+        <main>
+          <Switch>
+            <Route exact path="/">
+              {
+                user
+                  ? <Redirect to="/search"/>
+                  : <HomePage setUser={setUser}/>
+              }
+            </Route>
+            <Route exact path="/search">
+              {
+                user
+                  ? <redirect to="/" />
+                  : <SearchPage />
+              }
+            </Route>
+            <Route exact path="/sawmovie">
+              {
+                user
+                  ? <Redirect to="/" />
+                  : <WatchListPage />
+              }
+            </Route>
+          </Switch>
+        </main>
+      </div>
+    </Router>
   );
 }
 
