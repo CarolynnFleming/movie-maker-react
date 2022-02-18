@@ -1,6 +1,6 @@
 import React from 'react';
 import MovieList from './MovieList';
-import { searchMovie, getMovieSearchList } from './services/fetch_utils';
+import { searchMovies, getMovieSearchList } from './services/fetch_utils';
 import { useState, useEffect } from 'react';
 
 export default function SearchPage() {
@@ -9,7 +9,11 @@ export default function SearchPage() {
     const [sawList, setSawList] = useState([]);
 
     async function handleSearch(e) {
-        
+     e.preventDefault();
+     
+     const movies = await searchMovies(searchQuery);
+
+     setResults(movies);
     }
   return (
     <div>SearchPage</div>
