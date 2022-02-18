@@ -23,6 +23,11 @@ function App() {
     }
     fetchUser();
   }, []);
+
+  async function handleLogout() {
+    await logout();
+    setUser('');
+  }
   return (
     <div className="App">
       <header className="App-header">
