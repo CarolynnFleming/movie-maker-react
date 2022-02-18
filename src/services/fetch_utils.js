@@ -48,3 +48,11 @@ export async function sawMovie(id) {
 
   return checkError(response);
 }
+
+export async function searchMovies(query) {
+  const response = await fetch(`/.netlify/functions/movies-endpoint?searchQuery=${query}`);
+
+  const json = await response.json();
+
+  return json.data.results;
+}
