@@ -1,6 +1,6 @@
 import React from 'react';
 import MovieList from './MovieList';
-import { searchMovies, getMovieSearchList } from './services/fetch_utils';
+import { searchMovies, getMovieSearchList } from './services/fetch-utils';
 import { useState, useEffect } from 'react';
 
 export default function SearchPage() {

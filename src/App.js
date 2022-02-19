@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getUser } from './services/fetch_utils';
+import { getUser } from './services/fetch-utils';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,7 +8,7 @@ import {
   NavLink
 } from 'react-router-dom';
 import HomePage from './HomePage';
-import { logout } from './services/fetch_utils';
+import { logout } from './services/fetch-utils';
 import SearchPage from './SearchPage';
 import WatchListPage from './WatchListPage';
 import './App.css';
@@ -52,14 +52,14 @@ function App() {
             </Route>
             <Route exact path="/search">
               {
-                user
-                  ? <redirect to="/" />
+                !user
+                  ? <Redirect to="/" />
                   : <SearchPage />
               }
             </Route>
             <Route exact path="/sawmovie">
               {
-                user
+                !user
                   ? <Redirect to="/" />
                   : <WatchListPage />
               }

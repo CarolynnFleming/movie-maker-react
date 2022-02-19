@@ -1,5 +1,5 @@
 import React from 'react';
-import { sawMovie } from './services/fetch_utils';
+import { sawMovie } from './services/fetch-utils';
 
 
 export default function WatchListItem({ movie, refreshSawList }) {

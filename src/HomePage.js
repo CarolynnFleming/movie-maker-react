@@ -1,8 +1,8 @@
 import React from 'react';
-import { signIn, signUp } from './services/fetch_utils';
+import { signIn, signUp } from './services/fetch-utils';
 import { useState } from 'react';
 
-export default function HomePage({ setUser }) {
+export default function HomePage(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -10,14 +10,14 @@ export default function HomePage({ setUser }) {
     e.preventDefault();
 
     const user = await signIn(email, password);
-    setUser(user);
+    props.setUser(user);
   }
 
   async function handleSignUp(e) {
     e.preventDefault();
 
     const user = await signUp(email, password);
-    setUser(user);
+    props.setUser(user);
   }
   return (
     <div className='home page'>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import MovieList from './MovieList';
-import { getMovieSearchList } from './services/fetch_utils';
+import { getMovieSearchList } from './services/fetch-utils';
 
 export default function WatchListPage() {
   const [movies, setmovies] = useState([]);

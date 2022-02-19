@@ -1,5 +1,5 @@
 import React from 'react';
-import { addToMovieSearchList } from './services/fetch_utils';
+import { addToMovieSearchList } from './services/fetch-utils';
 
 export default function Movie({
   movie,
