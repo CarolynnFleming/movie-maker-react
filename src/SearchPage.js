@@ -11,9 +11,9 @@ export default function SearchPage() {
   async function handleSearch(e) {
     e.preventDefault();
      
-    const movies = await searchMovies(searchQuery);
+    const toms = await searchMovies(searchQuery);
 
-    setResults(movies);
+    setResults(toms);
   }
 
   async function refreshSawList() {
@@ -39,7 +39,7 @@ export default function SearchPage() {
       </form>
       <section>
             Results:
-        <MovieList movies={results} isOnSawList={isOnSawList} refreshSawList={refreshSawList}/>
+        <MovieList toms={results} isOnSawList={isOnSawList} refreshSawList={refreshSawList}/>
       </section>
     </div>
   );
