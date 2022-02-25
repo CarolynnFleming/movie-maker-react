@@ -4,7 +4,7 @@ import MovieList from './MovieList';
 import { getMovieSearchList } from './services/fetch-utils';
 
 export default function WatchListPage() {
-  const [movies, setmovies] = useState([]);
+  const [toms, setmovies] = useState([]);
   async function refreshSawList() {
     const mySawList = await getMovieSearchList();
 
@@ -17,7 +17,7 @@ export default function WatchListPage() {
   return (
     <div>
       <h2>My Watchlist</h2>
-      <MovieList movies={movies} refreshSawList={refreshSawList} />
+      <MovieList toms={toms} refreshSawList={refreshSawList} />
     </div>
   );
 }

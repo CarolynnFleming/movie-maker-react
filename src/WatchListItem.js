@@ -11,7 +11,7 @@ export default function WatchListItem({ movie, refreshSawList }) {
   return (
     <div
       onClick={handleClick} className='movie-item watchlist-item'>
-      <h1>{movie.watched ? '✅' : '👀'}</h1>
+      <h1>{movie.saw ? '✅' : '👀'}</h1>
       <h3>{movie.title}</h3>
       <em>{movie.description}</em>
       <p>
